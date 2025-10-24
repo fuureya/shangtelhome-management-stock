@@ -1,16 +1,16 @@
 services:
-  # shangtel-stock:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: shangtel-stock
-  #   ports:
-  #     - "8080:80"
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./laravel:/var/www/html
-  #   networks:
-  #     - app-network
+  shangtel-stock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shangtel-stock
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    volumes:
+      - ./laravel:/var/www/html
+    networks:
+      - app-network
 
   db-shangtel-stock:
     image: mariadb:latest

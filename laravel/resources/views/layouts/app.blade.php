@@ -37,20 +37,20 @@
                                 Dashboard
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('pakai-stock.form') ? 'active' : '' }}" href="{{ route('pakai-stock.form') }}">
+                                Pakai Stock
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('tambah-stock.form') ? 'active' : '' }}" href="{{ route('tambah-stock.form') }}">
+                                Tambah Stock
+                            </a>
+                        </li>
                         @can('manage-stock')
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::routeIs('kelola-stock.index') ? 'active' : '' }}" href="{{ route('kelola-stock.index') }}">
                                     Kelola Stock
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('pakai-stock.form') ? 'active' : '' }}" href="{{ route('pakai-stock.form') }}">
-                                    Pakai Stock
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('tambah-stock.form') ? 'active' : '' }}" href="{{ route('tambah-stock.form') }}">
-                                    Tambah Stock
                                 </a>
                             </li>
                         @endcan

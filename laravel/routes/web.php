@@ -18,18 +18,19 @@ Route::get('/redirect', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\StockController::class, 'showDashboard'])->name('dashboard');
 
+    // Routes for all authenticated users
+    Route::get('/pakai-stock', [App\Http\Controllers\StockController::class, 'pakaiStockForm'])->name('pakai-stock.form');
+    Route::post('/pakai-stock', [App\Http\Controllers\StockController::class, 'pakaiStock'])->name('pakai-stock.process');
+
+    Route::get('/tambah-stock', [App\Http\Controllers\StockController::class, 'tambahStockForm'])->name('tambah-stock.form');
+    Route::post('/tambah-stock', [App\Http\Controllers\StockController::class, 'tambahStock'])->name('tambah-stock.process');
+
     Route::middleware(['can:manage-stock'])->group(function () {
         Route::get('/kelola-stock', [App\Http\Controllers\StockController::class, 'index'])->name('kelola-stock.index');
         Route::post('/kelola-stock', [App\Http\Controllers\StockController::class, 'store'])->name('kelola-stock.store');
         Route::get('/kelola-stock/{stock}/edit', [App\Http\Controllers\StockController::class, 'edit'])->name('kelola-stock.edit');
         Route::put('/kelola-stock/{stock}', [App\Http\Controllers\StockController::class, 'update'])->name('kelola-stock.update');
         Route::delete('/kelola-stock/{stock}', [App\Http\Controllers\StockController::class, 'destroy'])->name('kelola-stock.destroy');
-
-        Route::get('/pakai-stock', [App\Http\Controllers\StockController::class, 'pakaiStockForm'])->name('pakai-stock.form');
-        Route::post('/pakai-stock', [App\Http\Controllers\StockController::class, 'pakaiStock'])->name('pakai-stock.process');
-
-        Route::get('/tambah-stock', [App\Http\Controllers\StockController::class, 'tambahStockForm'])->name('tambah-stock.form');
-        Route::post('/tambah-stock', [App\Http\Controllers\StockController::class, 'tambahStock'])->name('tambah-stock.process');
     });
 
     // User Management Routes
