@@ -1,0 +1,49 @@
+services:
+  # shangtel-stock:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: shangtel-stock
+  #   ports:
+  #     - "8080:80"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./laravel:/var/www/html
+  #   networks:
+  #     - app-network
+
+  db-shangtel-stock:
+    image: mariadb:latest
+    container_name: db-shangtel-stock
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "@@R4m@ldulu2025"
+      MYSQL_DATABASE: shangtel-stock
+      MYSQL_USER: root
+      MYSQL_PASSWORD: "@@R4m@ldulu2025"
+    volumes:
+      - shangtel-stock-db-volume:/var/lib/mysql
+    networks:
+      - app-network
+    ports:
+      - "3306:3306"
+
+  pma-shangtel-stock:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma-shangtel-stock
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db-shangtel-stock
+      MYSQL_ROOT_PASSWORD: "@@R4m@ldulu2025"
+    depends_on:
+      - db-shangtel-stock
+    networks:
+      - app-network
+
+volumes:
+  shangtel-stock-db-volume:
+
+networks:
+  app-network:
+    driver: bridge
