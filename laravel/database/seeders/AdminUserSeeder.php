@@ -17,7 +17,7 @@ class AdminUserSeeder extends Seeder
         User::create([
             'name' => 'Admin User',
             'username' => 'root',
-            'password' => Hash::make('rootroot'),
+            'password' => Hash::make('kuinginkautahu'),
             'role' => 'admin',
         ]);
     }
