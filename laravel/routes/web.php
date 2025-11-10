@@ -41,5 +41,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/kelola-user/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('kelola-user.edit');
         Route::put('/kelola-user/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('kelola-user.update');
         Route::delete('/kelola-user/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('kelola-user.destroy');
+        Route::get('/log-aktivitas', [\App\Http\Controllers\LogAktivitasController::class, 'index'])->name('log-aktivitas.index');
     });
 });
