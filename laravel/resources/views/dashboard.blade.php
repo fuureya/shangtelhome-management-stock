@@ -21,48 +21,33 @@
     .welcome-card p {
         margin-bottom: 0;
     }
-    .table-responsive .table {
-        min-width: 600px; /* Ensure table has a minimum width */
-    }
 
-    /* Responsive Table to Card styles */
     @media (max-width: 767.98px) {
-        .responsive-table-to-card {
-            display: block;
-            width: 100%;
-        }
         .responsive-table-to-card thead {
-            display: none; /* Hide table headers */
+            display: none;
         }
-        .responsive-table-to-card tbody,
-        .responsive-table-to-card tr,
-        .responsive-table-to-card td {
-            display: block;
-            width: 100%;
-        }
+
         .responsive-table-to-card tr {
-            margin-bottom: 1rem;
-            border: 1px solid #e9ecef;
+            display: block;
+            border: 1px solid #ddd;
             border-radius: .5rem;
             padding: 1rem;
+            margin-bottom: 1rem;
         }
+
         .responsive-table-to-card td {
+            display: flex;
+            justify-content: space-between;
             padding: 0.5rem 0;
             border: none;
-            position: relative;
-            padding-left: 50%; /* Space for the label */
             text-align: right;
         }
+
         .responsive-table-to-card td:before {
             content: attr(data-label);
-            position: absolute;
-            left: 0.5rem;
-            width: calc(50% - 1rem);
-            padding-right: 10px;
-            white-space: nowrap;
-            text-align: left;
             font-weight: bold;
-            color: #333;
+            padding-right: 1rem;
+            text-align: left;
         }
     }
 </style>
